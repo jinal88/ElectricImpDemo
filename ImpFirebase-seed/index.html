@@ -1,0 +1,26 @@
+<html>
+<head>
+    <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+    <link rel='stylesheet' type='text/css' href='../css/example.css'>
+</head>
+<body>
+<h1 align="center">Firebase Workshop Device List</h1>
+
+<div id='impDiv'></div>
+
+<script>
+    var myDataRef = new Firebase('https://imp.firebaseio-demo.com/');
+    myDataRef.on('child_added', function(snapshot) {
+        var impDevice = snapshot.val();
+        console.log(impDevice);
+        $('#impDiv').append('<li id="' + snapshot.name() + '"><b>Imp ID: </b>' + snapshot.name() + ' is: ' + impDevice) + '</li>';
+    });
+    myDataRef.on('child_changed', function(snapshot) {
+      var name = snapshot.name();
+      var impDevice = snapshot.val();
+      $('#' + name).html('<b>Imp ID: </b>' + snapshot.name() + ' is: ' + impDevice);
+    });
+</script>
+</body>
+</html>
