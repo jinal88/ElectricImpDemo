@@ -10,7 +10,7 @@
 <div id='impDiv'></div>
 
 <script>
-    var myDataRef = new Firebase('https://imp.firebaseio-demo.com/');
+    var myDataRef = new Firebase('https://examplefirebase.firebaseio.com/rolecall');
     myDataRef.on('child_added', function(snapshot) {
         var impDevice = snapshot.val();
         console.log(impDevice);

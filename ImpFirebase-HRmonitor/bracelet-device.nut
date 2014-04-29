@@ -1,5 +1,3 @@
-imp.configure("Firebase Heartrate Bracelet", [], []);
-
 bracelet <- hardware.pin1;
 bracelet.configure(DIGITAL_OUT);
 
@@ -29,3 +27,4 @@ function blink() {
   bracelet.write(0);
   imp.wakeup(delay, blink);
 }
+
